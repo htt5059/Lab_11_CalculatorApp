@@ -137,28 +137,46 @@ namespace Lab_11_CalculatorApp
         {
             string input = NegateButton.Text;
             CalculatorState.getInstance().nextState(4, input);
-            textBox1.Text = SpecialOperation.getInstance().display();
+            textBox1.Text = SpecialOperationState.getInstance().display();
         }
 
         private void InverseButton_MouseClick(object sender, MouseEventArgs e)
         {
             string input = InverseButton.Text;
             CalculatorState.getInstance().nextState(4, input);
-            textBox1.Text = SpecialOperation.getInstance().display();
+            textBox1.Text = SpecialOperationState.getInstance().display();
         }
 
         private void SquareButton_MouseClick(object sender, MouseEventArgs e)
         {
             string input = SquareButton.Text;
             CalculatorState.getInstance().nextState(4, input);
-            textBox1.Text = SpecialOperation.getInstance().display();
+            textBox1.Text = SpecialOperationState.getInstance().display();
         }
-
+        //Special Functions
         private void SQRTButton_MouseClick(object sender, MouseEventArgs e)
         {
             string input = SQRTButton.Text;
             CalculatorState.getInstance().nextState(4, input);
-            textBox1.Text = SpecialOperation.getInstance().display();
+            textBox1.Text = SpecialOperationState.getInstance().display();
+        }
+
+        private void BackspaceButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            CalculatorState.getInstance().nextState(0, null);
+            textBox1.Text = BackspaceState.getInstance().display();
+        }
+
+        private void ClearAll_MouseClick(object sender, MouseEventArgs e)
+        {
+            CalculatorState.getInstance().nextState(5, null);
+            textBox1.Text = ClearEverythingState.getInstance().display();
+        }
+
+        private void ClearButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            CalculatorState.getInstance().nextState(6, null);
+            textBox1.Text = ClearState.getInstance().display();
         }
     }
 }

@@ -6,17 +6,13 @@ using System.Threading.Tasks;
 
 namespace Lab_11_CalculatorApp
 {
-    class SpecialOperation: CalculatorState
+    class SpecialOperationState: CalculatorState
     {
         public override void enter(string input)
         {
             if (isCalculationComplete && isOperand1Complete && isOperand2Complete)
             {
-                isCalculationComplete = false;
-                isOperand1Complete = false;
-                isOperand2Complete = false;
-                operand2 = "0";
-                op = "";
+                reset();
             }else if (isCalculationComplete)
             {
                 operand2 = "0";
@@ -62,23 +58,45 @@ namespace Lab_11_CalculatorApp
         protected void sqrt() {
             if (!isOperand1Complete)
             {
-                operand1 = Convert.ToString(Math.Sqrt(Convert.ToDouble(operand1)));
+                if (Convert.ToDouble(operand1) < 0)
+                {
+                    error = "Invalid input";
+                }
+                else {
+                    operand1 = Convert.ToString(Math.Sqrt(Convert.ToDouble(operand1)));
+                }
             }
             else if (!isOperand2Complete)
             {
-                operand2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(operand1)));
-                isOperand2Complete = true;
+                if (Convert.ToDouble(operand2) < 0)
+                {
+                    error = "Invalid input";
+                }
+                else
+                {
+                    operand2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(operand1)));
+                    isOperand2Complete = true;
+                }
             }
-            else { 
-                operand2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(operand2)));
-                isOperand2Complete = true;
+            else {
+                if (Convert.ToDouble(operand2) < 0)
+                {
+                    error = "Invalid input";
+                }
+                else
+                {
+                    operand2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(operand2)));
+                    isOperand2Complete = true;
+                }
             }
         }
         protected void inverting()
         {
             if (!isOperand1Complete)
             {
-                operand1 = Convert.ToString(1 / Convert.ToDouble(operand1));
+                if (Convert.ToDouble(operand1) == 0) {
+                    error = "Cannot divide by zero";
+                }else operand1 = Convert.ToString(1 / Convert.ToDouble(operand1));
             }
             else if (!isOperand2Complete)
             {
@@ -87,8 +105,13 @@ namespace Lab_11_CalculatorApp
             }
             else
             {
-                operand2 = Convert.ToString(1 / Convert.ToDouble(operand2));
-                isOperand2Complete = true;
+                if (Convert.ToDouble(operand2) == 0)
+                {
+                    error = "Cannot divide by zero";
+                }
+                else { operand2 = Convert.ToString(1 / Convert.ToDouble(operand2));
+                    isOperand2Complete = true;
+                }
             }
         }
         protected void squaring() {

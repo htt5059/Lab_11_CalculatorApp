@@ -105,6 +105,7 @@ namespace Lab_11_CalculatorApp
             this.ClearAll.TabIndex = 3;
             this.ClearAll.Text = "CE";
             this.ClearAll.UseVisualStyleBackColor = true;
+            this.ClearAll.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ClearAll_MouseClick);
             // 
             // BackspaceButton
             // 
@@ -117,6 +118,7 @@ namespace Lab_11_CalculatorApp
             this.BackspaceButton.TabIndex = 5;
             this.BackspaceButton.Text = "<---";
             this.BackspaceButton.UseVisualStyleBackColor = true;
+            this.BackspaceButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.BackspaceButton_MouseClick);
             // 
             // ClearButton
             // 
@@ -129,6 +131,7 @@ namespace Lab_11_CalculatorApp
             this.ClearButton.TabIndex = 4;
             this.ClearButton.Text = "C";
             this.ClearButton.UseVisualStyleBackColor = true;
+            this.ClearButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.ClearButton_MouseClick);
             // 
             // SquareButton
             // 

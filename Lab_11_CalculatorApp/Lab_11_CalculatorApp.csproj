@@ -46,8 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BackspaceState.cs" />
     <Compile Include="CalculationState.cs" />
     <Compile Include="CalculatorState.cs" />
+    <Compile Include="ClearEverythingState.cs" />
+    <Compile Include="ClearState.cs" />
     <Compile Include="DigitState.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -58,7 +61,7 @@
     <Compile Include="OperatorState.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SpecialOperation.cs" />
+    <Compile Include="SpecialOperationState.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>

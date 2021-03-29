@@ -8,10 +8,13 @@ namespace Lab_11_CalculatorApp
 {
     class CalculatorState
     {
+        public const int BACKSPACE = 0;
         public const int DIGIT = 1;
         public const int OP = 2;
         public const int CALCULATION = 3;
         public const int SPECIAL_OP = 4;
+        public const int CLEAR_EVERYTHING = 5;
+        public const int CLEAR = 6;
         protected static string operand1 = "0";
         protected static string operand2 = "0";
         protected static string op = "";
@@ -25,7 +28,11 @@ namespace Lab_11_CalculatorApp
         static private DigitState digit = new DigitState();
         static private OperatorState opr = new OperatorState();
         static private CalculationState cs = new CalculationState();
-        static private SpecialOperation sop = new SpecialOperation();
+        static private SpecialOperationState sop = new SpecialOperationState();
+        static private BackspaceState back = new BackspaceState();
+        static private ClearEverythingState ces = new ClearEverythingState();
+        static private ClearState clear = new ClearState();
+        protected static string error = "";
         protected static string tempHistory;
 
         public static CalculatorState getInstance() { return cal; }
@@ -33,6 +40,10 @@ namespace Lab_11_CalculatorApp
         {
             switch (state)
             {
+                case 0:
+                    back.enter();
+                    cal = back;
+                    return cal;
                 case 1:
                     digit.enter(input);
                     cal = digit;
@@ -49,14 +60,26 @@ namespace Lab_11_CalculatorApp
                     sop.enter(input);
                     cal = sop;
                     return cal;
+                case 5:
+                    ces.enter();
+                    cal = ces;
+                    return cal;
+                case 6:
+                    clear.enter();
+                    cal = clear;
+                    return cal;
                 default:
-                    cs.enter();
-                    cal = cs;
                     return cal;
             }
         }
         public String display()
         {
+            if (error != "") {
+                string mess = error;
+                reset();
+                return mess;
+            }
+            error = "";
             if (isCalculationComplete) {
                 return tempHistory;
             }
@@ -69,5 +92,16 @@ namespace Lab_11_CalculatorApp
         public String clearScreen() => "";
         public virtual void enter(String input) { }
         public virtual void enter() { }
+        protected void reset() {
+            error = "";
+            operand1 = "0";
+            operand2 = "0";
+            op = "";
+            isOperand1Complete = false;
+            isOperand2Complete = false;
+            isCalculationComplete = false;
+            period1 = false;
+            period2 = false;
+        }
     }
 }

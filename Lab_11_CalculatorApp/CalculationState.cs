@@ -62,7 +62,13 @@ namespace Lab_11_CalculatorApp
                         result = Convert.ToString(o1 * o2);
                         break;
                     case "/":
-                        result = Convert.ToString(o1 / o2);
+                        if (o2 == 0) {
+                            error = "Cannot divide by zero";
+                        }
+                        else
+                        {
+                            result = Convert.ToString(o1 / o2);
+                        }
                         break;
                     default:
                         break;

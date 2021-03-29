@@ -15,12 +15,7 @@ namespace Lab_11_CalculatorApp
         protected void readInput(String input)
         {
             if (isCalculationComplete && isOperand1Complete && isOperand2Complete) {
-                isCalculationComplete = false;
-                isOperand1Complete = false;
-                operand1 = "0";
-                isOperand2Complete = false;
-                operand2 = "0";
-                op = "";
+                reset();
             }
             if (!isOperand1Complete)
                 if (input == "." && !period1)
