@@ -15,6 +15,7 @@ namespace Lab_11_CalculatorApp
             operand1 = result;
             result = "";
             isCalculationComplete = true;
+            isCalculationButtonPressed = false;
         }
         protected void calculation()
         {
@@ -22,7 +23,7 @@ namespace Lab_11_CalculatorApp
             {
                 result += operand1;
             }
-            else if (op != "" && isCalculationComplete)
+            else if (op != "" && !isCalculationComplete)
             {
                 if (!isOperand2Complete) { operand2 = operand1;
                     isOperand2Complete = true;

@@ -26,7 +26,7 @@ namespace Lab_11_CalculatorApp
                 }
             }
             else {
-                if (!isCalculationComplete)
+                if (!isCalculationComplete && isCalculationButtonPressed)
                     CalculatorState.getInstance().nextState(3, null);
                 op = input;
                 isOperand1Complete = true;

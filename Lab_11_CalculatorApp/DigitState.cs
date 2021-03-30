@@ -14,7 +14,7 @@ namespace Lab_11_CalculatorApp
         }
         protected void readInput(String input)
         {
-            if (isCalculationComplete && isOperand1Complete && isOperand2Complete) {
+            if (isCalculationComplete) {
                 reset();
             }
             if (!isOperand1Complete)

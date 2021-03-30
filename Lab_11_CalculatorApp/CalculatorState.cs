@@ -24,6 +24,7 @@ namespace Lab_11_CalculatorApp
         protected static bool isOperand1Complete = false;
         protected static bool isOperand2Complete = false;
         protected static bool isCalculationComplete = false;
+        protected static bool isCalculationButtonPressed = false;
         static private CalculatorState cal = new CalculatorState();
         static private DigitState digit = new DigitState();
         static private OperatorState opr = new OperatorState();
@@ -53,6 +54,7 @@ namespace Lab_11_CalculatorApp
                     cal = opr;
                     return cal;
                 case 3:
+                    isCalculationButtonPressed = true;
                     cs.enter();
                     cal = cs;
                     return cal;
@@ -80,8 +82,11 @@ namespace Lab_11_CalculatorApp
                 return mess;
             }
             error = "";
-            if (isCalculationComplete) {
-                return tempHistory;
+            if (isCalculationComplete)
+            {
+                if (isOperand1Complete && isOperand2Complete)
+                    return tempHistory;
+                else return $"{Convert.ToDouble(operand1)}";
             }
             else if (isOperand2Complete)
             {
@@ -100,6 +105,7 @@ namespace Lab_11_CalculatorApp
             isOperand1Complete = false;
             isOperand2Complete = false;
             isCalculationComplete = false;
+            isCalculationButtonPressed = false;
             period1 = false;
             period2 = false;
         }
