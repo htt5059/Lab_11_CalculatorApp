@@ -24,7 +24,9 @@ namespace Lab_11_CalculatorApp
             }
             else if (op != "" && isCalculationComplete)
             {
-                if (!isOperand2Complete) operand2 = operand1;
+                if (!isOperand2Complete) { operand2 = operand1;
+                    isOperand2Complete = true;
+                }
                 double o1 = Convert.ToDouble(operand1);
                 double o2 = Convert.ToDouble(operand2);
                 switch (op)
