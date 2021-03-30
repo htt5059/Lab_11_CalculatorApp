@@ -17,6 +17,7 @@ namespace Lab_11_CalculatorApp
         {
             InitializeComponent();
             Size = new Size(230, 100);
+            textBox1.Font = new Font(textBox1.Font.FontFamily, 16);
         }
         //Digit State
         private void Digit0_Button_MouseClick(object sender, MouseEventArgs e)
@@ -153,6 +154,13 @@ namespace Lab_11_CalculatorApp
             CalculatorState.getInstance().nextState(4, input);
             textBox1.Text = SpecialOperationState.getInstance().display();
         }
+
+        private void PercentButton_MouseClick(object sender, MouseEventArgs e)
+        {
+            string input = PercentButton.Text;
+            CalculatorState.getInstance().nextState(4, input);
+            textBox1.Text = SpecialOperationState.getInstance().display();
+        }
         //Special Functions
         private void SQRTButton_MouseClick(object sender, MouseEventArgs e)
         {
@@ -177,6 +185,6 @@ namespace Lab_11_CalculatorApp
         {
             CalculatorState.getInstance().nextState(6, null);
             textBox1.Text = ClearState.getInstance().display();
-        }
+        }        
     }
 }

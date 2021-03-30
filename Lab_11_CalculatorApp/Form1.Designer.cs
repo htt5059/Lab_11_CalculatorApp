@@ -30,7 +30,6 @@ namespace Lab_11_CalculatorApp
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.PercentButton = new System.Windows.Forms.Button();
             this.ClearAll = new System.Windows.Forms.Button();
             this.BackspaceButton = new System.Windows.Forms.Button();
@@ -59,6 +58,7 @@ namespace Lab_11_CalculatorApp
             // 
             // textBox1
             // 
+            this.textBox1.AllowDrop = true;
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -68,18 +68,6 @@ namespace Lab_11_CalculatorApp
             this.textBox1.Size = new System.Drawing.Size(553, 38);
             this.textBox1.TabIndex = 0;
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(3, 51);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(553, 38);
-            this.textBox2.TabIndex = 1;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // PercentButton
             // 
@@ -92,6 +80,7 @@ namespace Lab_11_CalculatorApp
             this.PercentButton.TabIndex = 2;
             this.PercentButton.Text = "%";
             this.PercentButton.UseVisualStyleBackColor = true;
+            this.PercentButton.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PercentButton_MouseClick);
             // 
             // ClearAll
             // 
@@ -440,7 +429,6 @@ namespace Lab_11_CalculatorApp
             this.Controls.Add(this.ClearButton);
             this.Controls.Add(this.ClearAll);
             this.Controls.Add(this.PercentButton);
-            this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Name = "Form1";
             this.Text = "Calculator";
@@ -452,7 +440,6 @@ namespace Lab_11_CalculatorApp
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button PercentButton;
         private System.Windows.Forms.Button ClearAll;
         private System.Windows.Forms.Button BackspaceButton;

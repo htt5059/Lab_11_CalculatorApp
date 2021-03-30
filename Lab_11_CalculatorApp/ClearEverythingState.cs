@@ -12,10 +12,8 @@ namespace Lab_11_CalculatorApp
             clearEverything();
         }
         protected void clearEverything() {
-            if (!isOperand1Complete)
-            {
-                operand1 = "0";
-            }
+            if (isOperand1Complete && isOperand2Complete && isCalculationComplete) reset();
+            else if (!isOperand1Complete) operand1 = "0";
             else operand2 = "0";
         }
     }

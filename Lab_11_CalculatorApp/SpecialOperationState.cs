@@ -52,7 +52,6 @@ namespace Lab_11_CalculatorApp
             else
             {
                 operand2 = Convert.ToString(Convert.ToDouble(operand2) * (-1));
-                isOperand2Complete = true;
             }
         }
         protected void sqrt() {
@@ -86,7 +85,6 @@ namespace Lab_11_CalculatorApp
                 else
                 {
                     operand2 = Convert.ToString(Math.Sqrt(Convert.ToDouble(operand2)));
-                    isOperand2Complete = true;
                 }
             }
         }

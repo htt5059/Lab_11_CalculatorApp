@@ -22,9 +22,9 @@ namespace Lab_11_CalculatorApp
             {
                 result += operand1;
             }
-            else if (op != "" && !isOperand2Complete)
+            else if (op != "" && isCalculationComplete)
             {
-                operand2 += operand1;
+                if (!isOperand2Complete) operand2 = operand1;
                 double o1 = Convert.ToDouble(operand1);
                 double o2 = Convert.ToDouble(operand2);
                 switch (op)
@@ -44,7 +44,6 @@ namespace Lab_11_CalculatorApp
                     default:
                         break;
                 }
-
             }
             else
             {

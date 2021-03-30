@@ -14,14 +14,29 @@ namespace Lab_11_CalculatorApp
         }
         protected void readOp(String input)
         {
-            op = input;
-            isOperand1Complete = true;
-            if (isCalculationComplete) {
-                operand2 = "0";
-                isCalculationComplete = false;
-                isOperand2Complete = false;
+            if (op == "")
+            {
+                op = input;
+                isOperand1Complete = true;
+                if (isCalculationComplete)
+                {
+                    operand2 = "0";
+                    isCalculationComplete = false;
+                    isOperand2Complete = false;
+                }
             }
-            
+            else {
+                if (!isCalculationComplete)
+                    CalculatorState.getInstance().nextState(3, null);
+                op = input;
+                isOperand1Complete = true;
+                if (isCalculationComplete)
+                {
+                    operand2 = "0";
+                    isCalculationComplete = false;
+                    isOperand2Complete = false;
+                }
+            }
         }
     }
 }
