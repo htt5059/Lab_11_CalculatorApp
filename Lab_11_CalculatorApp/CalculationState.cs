@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_11_CalculatorApp
 {
-    class CalculationState: CalculatorState
+    class CalculationState : CalculatorState
     {
         public override void enter()
         {
             calculation();
-            tempHistory=$"{Convert.ToString(Convert.ToDouble(operand1))} {op} {Convert.ToString(Convert.ToDouble(operand2))} = {result}";
+            tempHistory = $"{Convert.ToString(Convert.ToDouble(operand1))} {op} {Convert.ToString(Convert.ToDouble(operand2))} = {result}";
             operand1 = result;
             result = "";
             isCalculationComplete = true;
@@ -25,7 +21,9 @@ namespace Lab_11_CalculatorApp
             }
             else if (op != "" && !isCalculationComplete)
             {
-                if (!isOperand2Complete) { operand2 = operand1;
+                if (!isOperand2Complete)
+                {
+                    operand2 = operand1;
                     isOperand2Complete = true;
                 }
                 double o1 = Convert.ToDouble(operand1);
@@ -64,7 +62,8 @@ namespace Lab_11_CalculatorApp
                         result = Convert.ToString(o1 * o2);
                         break;
                     case "/":
-                        if (o2 == 0) {
+                        if (o2 == 0)
+                        {
                             error = "Cannot divide by zero";
                         }
                         else
@@ -76,7 +75,7 @@ namespace Lab_11_CalculatorApp
                         break;
                 }
             }
-            
+
         }
     }
 }

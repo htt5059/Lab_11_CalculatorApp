@@ -1,17 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_11_CalculatorApp
 {
-    class BackspaceState: CalculatorState
+    class BackspaceState : CalculatorState
     {
-        public void enter() {
+        public void enter()
+        {
             backspace();
         }
-        protected void backspace() {
+        protected void backspace()
+        {
             if (!isOperand1Complete && Convert.ToDouble(operand1) == 0)
             {
                 return;
@@ -24,7 +22,8 @@ namespace Lab_11_CalculatorApp
                 }
                 else operand1 = operand1.Substring(0, operand1.Length - 1);
             }
-            else if (isOperand2Complete && Convert.ToDouble(operand2) == 0) {
+            else if (isOperand2Complete && Convert.ToDouble(operand2) == 0)
+            {
                 return;
             }
             else if (isOperand2Complete && Convert.ToDouble(operand2) != 0)

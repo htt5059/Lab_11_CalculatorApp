@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_11_CalculatorApp
 {
@@ -14,7 +10,8 @@ namespace Lab_11_CalculatorApp
         }
         protected void readInput(String input)
         {
-            if (isCalculationComplete) {
+            if (isCalculationComplete)
+            {
                 reset();
             }
             if (!isOperand1Complete)
@@ -25,7 +22,8 @@ namespace Lab_11_CalculatorApp
                 }
                 else if (input == "." && period1) return;
                 else operand1 += input;
-            else {
+            else
+            {
                 isOperand2Complete = true;
                 if (input == "." && !period2)
                 {

@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Lab_11_CalculatorApp
@@ -129,7 +123,8 @@ namespace Lab_11_CalculatorApp
 
         //Calculation State
         private void ComputeButton_MouseClick(object sender, MouseEventArgs e)
-        {   CalculatorState.getInstance().nextState(3, null);
+        {
+            CalculatorState.getInstance().nextState(3, null);
             textBox1.Text = CalculationState.getInstance().display();
         }
 
@@ -185,6 +180,6 @@ namespace Lab_11_CalculatorApp
         {
             CalculatorState.getInstance().nextState(6, null);
             textBox1.Text = ClearState.getInstance().display();
-        }        
+        }
     }
 }

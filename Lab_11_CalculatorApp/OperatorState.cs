@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_11_CalculatorApp
 {
@@ -25,7 +21,8 @@ namespace Lab_11_CalculatorApp
                     isOperand2Complete = false;
                 }
             }
-            else {
+            else
+            {
                 if (!isCalculationComplete && isCalculationButtonPressed)
                     CalculatorState.getInstance().nextState(3, null);
                 op = input;

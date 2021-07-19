@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab_11_CalculatorApp
 {
@@ -76,7 +72,8 @@ namespace Lab_11_CalculatorApp
         }
         public String display()
         {
-            if (error != "") {
+            if (error != "")
+            {
                 string mess = error;
                 reset();
                 return mess;
@@ -97,7 +94,8 @@ namespace Lab_11_CalculatorApp
         public String clearScreen() => "";
         public virtual void enter(String input) { }
         public virtual void enter() { }
-        protected void reset() {
+        protected void reset()
+        {
             error = "";
             operand1 = "0";
             operand2 = "0";
